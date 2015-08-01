@@ -1,0 +1,30 @@
+{
+  "name": "ngBoxBounce",
+  "authors": [
+    "Michael Fladischer <michael@openservices.at>"
+  ],
+  "description": "Angular.js directive to automatically scroll overflowing content inside a box.",
+  "main": [
+    "./ng-boxbounce.js",
+    "./ng-boxbounce.css"
+  ],
+  "keywords": [
+    "angular",
+    "box",
+    "scrolling"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/OpenServicesEU/ngBoxBounce",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "gruntfile.js",
+    "package.json"
+  ],
+  "dependencies": {
+    "angular": "~1.4.1"
+  }
+}

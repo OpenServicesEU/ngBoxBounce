@@ -1,0 +1,17 @@
+@keyframes ngBoxBounce {
+  0%,10% { 
+    transform: translateY(0%); 
+  }
+  90%,100% { 
+    transform: translateY(-100%);  
+  }
+}
+.ngBoxBounceWrapper {
+  overflow: hidden;
+}
+.ngBoxBounceScroller {
+  animation-name: ngBoxBounce;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-fill-mode: forwards;
+}

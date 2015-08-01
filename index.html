@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>ngBoxBounce</title>
+  <link rel="stylesheet" type="text/css" href="ng-boxbounce.css">
+  <style type="text/css">
+  .scroller {
+    height: 400px;
+    border: 1px solid #000;
+  }
+  </style>
+</head>
+<body ng-app="demo" ng-controller="DemoCtrl">
+  <h1>ngBoxBounce Demo App</h1>
+  Vary image height: <input type="checkbox" ng-model="vary">
+  Show overflow: <input type="checkbox" ng-model="overflow">
+  <div class="scroller" ng-box-bounce duration="40s" easing="ease-in" ng-style="toggleOverflow(overflow)">
+    <div>Header</div>
+    <img ng-src="http://lorempixel.com/1024/{{ height }}/nature/">
+    <div>Testtext</div>
+  </div>
+  <div class="scroller" ng-box-bounce duration="40s" easing="linear" ng-style="toggleOverflow(overflow)">
+    <div>Header</div>
+    <img ng-src="http://lorempixel.com/1024/{{ height }}/nature/">
+    <div>Testtext</div>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+  <script src="ng-boxbounce.js"></script>
+  <script>
+    angular.module("demo", ['ngBoxBounce'])
+    .controller('DemoCtrl', [
+        '$scope',
+        '$interval',
+        function($scope, $interval) {
+          var getRandomInt = function(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+          };
+          var interval = $interval(function() {
+            if ($scope.vary) {
+              $scope.height = getRandomInt(300, 1900);
+            }
+          }, 10000);
+          $scope.height = 1920;
+          $scope.toggleOverflow = function(value) {
+            return value ? {overflow: 'visible'} : {overflow: 'hidden'};
+          };
+          $scope.$on('destroy', function() {
+            $interval.cancel(interval);
+          });
+        }
+    ]);
+  </script>
+</body>
+</html>
