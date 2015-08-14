@@ -2,6 +2,7 @@ ngBoxBounce
 ===========
 
 [![Build Status](https://travis-ci.org/OpenServicesEU/ngBoxBounce.svg?branch=master)](https://travis-ci.org/OpenServicesEU/ngBoxBounce)
+[![Bower version](https://badge.fury.io/bo/ngBoxBounce.svg)](http://badge.fury.io/bo/ngBoxBounce)
 
 Angular.js directive that automatically scrolls the content inside the box it
 was applied to along the vertical axis. This only happens if the content
